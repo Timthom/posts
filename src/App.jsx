@@ -72,31 +72,30 @@ function App() {
 
   // Delete!
   // TODO: Add async/await
-  const deletePost = async (id) => {
+  const deletePost = async(id) => {
     // 9. We have to pass in a id as argument so the api can track the post we want to delete.
-    // 15. change to await
+    // 15. change to await and create a constant
     const response = await fetch(
       `https://jsonplaceholder.typicode.com/posts/${id}`,
       {
         // We have to supply witch method we want and here is simply the DELETE method we want
         method: "DELETE",
       }
-    )
-      // Now we want to check the response so our delete was succesful.
-      // 16. Now we can remove .then() from our if check
-      //.then((response) => {
-        if (response.status === 200) {
-          setPosts(
-            posts.filter((post) => {
-              return post.id !== id;
-            })
-          );
-        }
-    //});   
+    );
+    // Now we want to check the response so our delete was succesful.
+    // 16. Now we can remove .then() from our if check
+    //.then((response) => {
+    if (response.status === 200) {
+      setPosts(
+        posts.filter((post) => {
+          return post.id !== id;
+        })
+      );
+    }
+    //});
   };
 
   //TODO: UPDATE/PUT
-  
 
   return (
     <main>
